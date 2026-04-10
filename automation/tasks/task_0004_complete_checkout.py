@@ -7,7 +7,7 @@ from automation.pages.checkout_information_page import CheckoutInformationPage
 from automation.pages.checkout_overview_page import CheckoutOverviewPage
 from automation.pages.home_page import HomePage
 from automation.pages.login_page import LoginPage
-from core.testing.base_test import BaseTest
+from playwright_core.testing.base_test import BaseTest
 
 
 class Task0004CompleteCheckout(BaseTest):

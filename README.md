@@ -1,17 +1,19 @@
 # playwright-automation
 
-QA automation workspace built with Python, Playwright, Pytest, and a reusable core framework.
+Consumer automation project built on top of the external [`playwright-core`](https://github.com/tenorio0/playwright-core) framework.
+
+## Purpose
+
+This repository is focused only on:
+
+- page models specific to the application under test
+- business functionalities and journeys
+- final scenario construction through task classes
+- XML-based execution selection
 
 ## Structure
 
 ```text
-core/
-|-- config/
-|-- driver/
-|-- pages/
-|-- reporting/
-`-- testing/
-
 automation/
 |-- conftest.py
 |-- run_testng.py
@@ -34,68 +36,31 @@ automation/
     `-- task_0004_complete_checkout.py
 ```
 
-## Architecture
+## Framework Dependency
 
-- `pages`: map locators and page actions on top of the shared `BasePage`
-- `functionalities`: orchestrate business journeys using one or more pages
-- `tasks`: define the final test scenarios
-- `testng.xml`: selects which task files should run
+The reusable framework now lives in:
+
+- [`playwright-core`](https://github.com/tenorio0/playwright-core)
+
+Installed through:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Execution
 
-The main entry point for IDE execution is:
-
-- `automation/run_testng.py`
-
-The XML runner reads:
-
-- `automation/testng.xml`
-
-Example:
-
-```xml
-<execution headed="false" slow_mo="0" />
-<class path="automation/tasks/task_0001_login.py" enabled="true" />
-```
-
-To visually follow execution:
-
-```xml
-<execution headed="true" slow_mo="700" />
-```
-
-## How To Run
-
-Windows PowerShell:
-
-```powershell
-.\tools\runners\run_tests_windows.ps1
-.\tools\runners\run_tests_windows.ps1 -Target "automation\tasks\task_0001_login.py"
-```
-
-Windows batch:
-
-```bat
-tools\runners\run_tests_windows.bat
-tools\runners\run_tests_windows.bat automation\tasks\task_0001_login.py
-```
-
-macOS/Linux:
+Run the XML selector:
 
 ```bash
-chmod +x ./tools/runners/run_tests_unix.sh
-./tools/runners/run_tests_unix.sh
-./tools/runners/run_tests_unix.sh automation/tasks/task_0001_login.py
+python -B automation/run_testng.py
 ```
 
-## Evidence
+Or call the framework runner directly:
 
-Execution artifacts are generated under `test-results/`.
-
-- one PDF evidence report per executed task
-- procedural naming to avoid overwriting previous runs
-
-Screenshots are captured by page methods and used as temporary assets to compose the PDF report.
+```bash
+python -B -m playwright_core.testing.testng_runner automation/testng.xml
+```
 
 ## Current Practice Scenarios
 

@@ -1,3 +1,1 @@
-playwright==1.52.0
-pytest==8.3.5
-reportlab==4.4.1
+playwright-core @ git+https://github.com/tenorio0/playwright-core.git@main

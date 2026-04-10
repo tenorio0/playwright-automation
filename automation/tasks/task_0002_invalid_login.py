@@ -1,7 +1,7 @@
 from automation.functionalities.login_func import LoginFunc
 from automation.pages.home_page import HomePage
 from automation.pages.login_page import LoginPage
-from core.testing.base_test import BaseTest
+from playwright_core.testing.base_test import BaseTest
 
 
 class Task0002InvalidLogin(BaseTest):

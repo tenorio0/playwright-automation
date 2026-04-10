@@ -1,1 +1,1 @@
-pytest_plugins = ("core.testing.pytest_plugin",)
+pytest_plugins = ("playwright_core.testing.pytest_plugin",)

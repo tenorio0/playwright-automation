@@ -1,4 +1,4 @@
-from core.pages.base_page import BasePage
+from playwright_core.pages.base_page import BasePage
 
 
 class CheckoutOverviewPage(BasePage):
