@@ -11,6 +11,8 @@ dist/
 *.egg-info/
 playwright-report/
 test-results/
+reports/
+**/reports/
 *.pyc
 *.pyo
 *.pyd
