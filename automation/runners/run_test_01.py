@@ -12,6 +12,7 @@ XML_CONFIG = Path(__file__).with_name("set_test_01.xml")
 
 
 def main() -> int:
+    os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
     existing_pythonpath = os.environ.get("PYTHONPATH", "").strip()
     os.environ["PYTHONPATH"] = (
         f"{ROOT}{os.pathsep}{existing_pythonpath}" if existing_pythonpath else str(ROOT)
