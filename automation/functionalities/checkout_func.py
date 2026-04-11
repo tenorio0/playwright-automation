@@ -1,3 +1,5 @@
+from playwright.sync_api import Page
+
 from automation.pages.cart_page import CartPage
 from automation.pages.checkout_complete_page import CheckoutCompletePage
 from automation.pages.checkout_information_page import CheckoutInformationPage
@@ -5,17 +7,11 @@ from automation.pages.checkout_overview_page import CheckoutOverviewPage
 
 
 class CheckoutFunc:
-    def __init__(
-        self,
-        cart_page: CartPage,
-        checkout_information_page: CheckoutInformationPage,
-        checkout_overview_page: CheckoutOverviewPage,
-        checkout_complete_page: CheckoutCompletePage,
-    ) -> None:
-        self.cart_page = cart_page
-        self.checkout_information_page = checkout_information_page
-        self.checkout_overview_page = checkout_overview_page
-        self.checkout_complete_page = checkout_complete_page
+    def __init__(self, page: Page, base_url: str = "https://www.saucedemo.com") -> None:
+        self.cart_page = CartPage(page=page, base_url=base_url)
+        self.checkout_information_page = CheckoutInformationPage(page=page, base_url=base_url)
+        self.checkout_overview_page = CheckoutOverviewPage(page=page, base_url=base_url)
+        self.checkout_complete_page = CheckoutCompletePage(page=page, base_url=base_url)
 
     def complete_checkout(
         self,

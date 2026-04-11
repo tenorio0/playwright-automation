@@ -3,6 +3,12 @@
 __pycache__/
 **/__pycache__/
 .pytest_cache/
+.coverage
+.mypy_cache/
+htmlcov/
+build/
+dist/
+*.egg-info/
 playwright-report/
 test-results/
 *.pyc

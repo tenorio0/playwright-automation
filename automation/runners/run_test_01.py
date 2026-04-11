@@ -7,7 +7,7 @@ from playwright_core.testing.testng_runner import run_from_xml
 
 
 def main() -> int:
-    return run_from_xml(Path(__file__).with_name("testng.xml"))
+    return run_from_xml(Path(__file__).with_name("set_test_01.xml"))
 
 
 if __name__ == "__main__":
