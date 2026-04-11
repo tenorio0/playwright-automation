@@ -15,9 +15,8 @@ This repository is focused only on:
 
 ```text
 automation/
-|-- conftest.py
-|-- run_testng.py
-|-- testng.xml
+|-- runners/
+|   `-- run_test_01.py
 |-- functionalities/
 |   |-- cart_func.py
 |   |-- checkout_func.py
@@ -34,6 +33,12 @@ automation/
     |-- task_0002_invalid_login.py
     |-- task_0003_add_product_to_cart.py
     `-- task_0004_complete_checkout.py
+
+config/
+|-- conftest.py
+|-- pytest.ini
+|-- requirements.txt
+`-- set_test_01.xml
 ```
 
 ## Framework Dependency
@@ -45,7 +50,7 @@ The reusable framework now lives in:
 Installed through:
 
 ```bash
-pip install -r requirements.txt
+pip install -r config/requirements.txt
 ```
 
 ## Execution
@@ -53,13 +58,13 @@ pip install -r requirements.txt
 Run the XML selector:
 
 ```bash
-python -B automation/run_testng.py
+python -B automation/runners/run_test_01.py
 ```
 
 Or call the framework runner directly:
 
 ```bash
-python -B -m playwright_core.testing.testng_runner automation/testng.xml
+python -B -m playwright_core.testing.testng_runner config/set_test_01.xml
 ```
 
 ## Current Practice Scenarios
