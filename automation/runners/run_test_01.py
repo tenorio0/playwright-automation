@@ -12,6 +12,10 @@ XML_CONFIG = Path(__file__).with_name("set_test_01.xml")
 
 
 def main() -> int:
+    existing_pythonpath = os.environ.get("PYTHONPATH", "").strip()
+    os.environ["PYTHONPATH"] = (
+        f"{ROOT}{os.pathsep}{existing_pythonpath}" if existing_pythonpath else str(ROOT)
+    )
     extra_addopts = f'-c "{PYTEST_CONFIG}" -p config.conftest'
     existing_addopts = os.environ.get("PYTEST_ADDOPTS", "").strip()
     os.environ["PYTEST_ADDOPTS"] = f"{existing_addopts} {extra_addopts}".strip()
