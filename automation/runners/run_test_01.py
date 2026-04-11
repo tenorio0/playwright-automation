@@ -8,7 +8,7 @@ from playwright_core.testing.testng_runner import run_from_xml
 
 ROOT = Path(__file__).resolve().parents[2]
 PYTEST_CONFIG = ROOT / "config" / "pytest.ini"
-XML_CONFIG = ROOT / "config" / "set_test_01.xml"
+XML_CONFIG = Path(__file__).with_name("set_test_01.xml")
 
 
 def main() -> int:

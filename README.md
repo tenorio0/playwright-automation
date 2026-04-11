@@ -16,7 +16,8 @@ This repository is focused only on:
 ```text
 automation/
 |-- runners/
-|   `-- run_test_01.py
+|   |-- run_test_01.py
+|   `-- set_test_01.xml
 |-- functionalities/
 |   |-- cart_func.py
 |   |-- checkout_func.py
@@ -37,8 +38,7 @@ automation/
 config/
 |-- conftest.py
 |-- pytest.ini
-|-- requirements.txt
-`-- set_test_01.xml
+`-- requirements.txt
 ```
 
 ## Framework Dependency
@@ -64,7 +64,7 @@ python -B automation/runners/run_test_01.py
 Or call the framework runner directly:
 
 ```bash
-python -B -m playwright_core.testing.testng_runner config/set_test_01.xml
+python -B -m playwright_core.testing.testng_runner automation/runners/set_test_01.xml
 ```
 
 ## Current Practice Scenarios
